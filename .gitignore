@@ -1,0 +1,57 @@
+# ========== Python ==========
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.db
+*.sqlite3
+
+# ========== Node ==========
+node_modules/
+dist/
+npm-debug.log*
+
+# ========== Environment ==========
+.env
+.env.local
+.env.production
+
+# ========== Runtime & Data ==========
+uploads/*
+!uploads/.gitkeep
+data/*
+!data/.gitkeep
+backend/data/*
+!backend/data/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/logs/*
+!backend/logs/.gitkeep
+
+# ========== IDE ==========
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========== OS ==========
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========== Docker ==========
+docker-compose.override.yml
+
+# ========== Logs ==========
+*.log
+logs/
+server.log
+vite.log
+access.log
+error.log
+audit.log
+
+# ========== Temp ==========
+*.tmp
+*.bak

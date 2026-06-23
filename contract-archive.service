@@ -1,0 +1,29 @@
+[Unit]
+Description=合同归档管理系统
+Documentation=https://github.com/yourname/contract-archive
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+
+# 关键：工作目录必须在 backend/ 下（.env + SQLite + uploads 路径依赖 CWD）
+WorkingDirectory=/opt/contract-archive/backend
+ExecStart=/opt/contract-archive/backend/venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+Restart=always
+RestartSec=5
+
+# 环境变量
+Environment=PATH=/opt/contract-archive/backend/venv/bin:/usr/local/bin:/usr/bin:/bin
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/contract-archive/backend/data /opt/contract-archive/backend/uploads /opt/contract-archive/backend/logs
+
+[Install]
+WantedBy=multi-user.target

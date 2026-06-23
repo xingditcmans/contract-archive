@@ -1,0 +1,41 @@
+# ============================================================
+#  合同归档管理系统 — Docker Compose 编排
+#  启动: docker-compose up -d
+#  停止: docker-compose down
+#  查看: docker-compose logs -f
+# ============================================================
+version: '3.8'
+
+services:
+  contract-archive:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: contract-archive
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+    # 数据持久化（SQLite + 上传文件）
+    volumes:
+      - contract_data:/app/backend/data
+      - contract_uploads:/app/backend/uploads
+      - ./backend/logs:/app/backend/logs
+
+    # 环境变量（覆盖 .env 中的值）
+    environment:
+      - ENVIRONMENT=production
+      # ⚠️ 以下变量按实际情况修改
+      # - SECRET_KEY=请生成随机密钥替换此处
+      # - RATE_LIMIT_PER_MINUTE=300
+      # - CORS_ORIGINS=["https://your-domain.com"]
+
+    # 安全加固
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  contract_data:
+    driver: local
+  contract_uploads:
+    driver: local

@@ -1,0 +1,40 @@
+# FastAPI 核心框架
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+python-multipart==0.0.6
+
+# 数据库
+sqlalchemy==2.0.39
+aiosqlite==0.21.0
+alembic==1.13.1
+
+# 用户认证
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+# bcrypt 必须 < 4.1（passlib 1.7.4 与 bcrypt 5.x 不兼容）
+bcrypt==4.0.1
+
+# Excel 导出
+openpyxl==3.1.2
+
+# PDF 处理和 OCR
+pdfplumber==0.10.3
+Pillow==11.1.0
+PyMuPDF==1.25.4
+pytesseract==0.3.13
+
+# OCR 云服务（可选，按需启用）
+# tencentcloud-sdk-python-core==3.0.970
+
+# 工具库
+python-dotenv==1.0.0
+pydantic==2.10.6
+pydantic-settings==2.7.1
+aiofiles==23.2.1
+
+# AI 识别（可选，按需启用）
+httpx==0.28.1
+
+# 安全相关
+# python-magic 已移除 — 该库的 C 扩展在 Windows+Python 3.13 下会导致 segfault
+# 文件类型检测通过 FILE_SIGNATURES 魔数字典实现，完全替代 python-magic 功能

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+backend/.venv/
+backend/data/
+backend/uploads/
+backend/logs/
+backend/server.log
+
+# Node
+frontend/node_modules/
+frontend/dist/*.map
+frontend/.vite/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docs (不需要打包进镜像)
+*.md
+!requirements.txt
+
+# Docker
+.dockerignore
+docker-compose.yml
+docker-compose.override.yml
+
+# Scripts (仅 Windows 相关)
+*.bat
+*.ps1
+deploy.sh
